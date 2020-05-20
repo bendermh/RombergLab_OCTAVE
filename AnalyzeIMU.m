@@ -1,4 +1,14 @@
-%Plot Accelerometer Data
+% Script to plot Accelerometer Data
+% from RombergLab for iOS APP - https://apps.apple.com/us/app/romberglab/id1440287860?l=en 
+% Originally developed by Jorge Rey-Martinez 2018
+% Authors: Ariadna Valldeperes, Xabier Altuna, Jorge Rey Martinez 
+% (C)2020
+
+
+% Load OCTAVE required Packages
+pkg load signal
+pkg load statistics
+
 [T,X,Y,Z,gX,gY,gZ,Talt,alt,Tmag,mX,mY,mZ,C] = read();
 if size(T) < 1 
     display('No data was loaded !')

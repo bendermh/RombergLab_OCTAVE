@@ -1,3 +1,9 @@
+% Script to plot Accelerometer Data
+% from RombergLab for iOS APP - https://apps.apple.com/us/app/romberglab/id1440287860?l=en 
+% Originally developed by Jorge Rey-Martinez 2018
+% Authors: Ariadna Valldeperes, Xabier Altuna, Jorge Rey Martinez 
+% (C)2020
+
 function [pX,pY,pZ] = getPosition(t,ax,ay,az,test)
     if nargin == 4
         test = 'Unknown';
