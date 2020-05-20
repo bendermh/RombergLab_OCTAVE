@@ -31,12 +31,12 @@ if file == 0
 end
 fullArchive = fullfile(directory,file);
 rTable = csvread(fullArchive);
-[nrows,ncols] = size(rTable);
+[nrows,~] = size(rTable);
 iter = 1;
 iter2 = 1;
 warn = waitbar(0,'Reading file, please wait...');
 while iter <= nrows
-  if !isnan(rTable(iter,1)) && !isnan(rTable(iter,3))
+  if ~isnan(rTable(iter,1)) && ~isnan(rTable(iter,3))
     timeRaw = vertcat(timeRaw,rTable(iter,1));
     accelX = vertcat(accelX,rTable(iter,2));
     accelY = vertcat(accelY,rTable(iter,3));
@@ -48,30 +48,6 @@ while iter <= nrows
   end
   
   
-##    if strcmp (rTable{iter,5},'Accelerometer')
-##       timeRaw = vertcat(timeRaw,rTable{iter,1});
-##       accelX = vertcat(accelX,rTable{iter,2});
-##       accelY = vertcat(accelY,rTable{iter,3});
-##       accelZ = vertcat(accelZ,rTable{iter,4});      
-##    end
-##    if strcmp (rTable{iter,5},'Gyroscope')
-##       gyrX = vertcat(gyrX,rTable{iter,2});
-##       gyrY = vertcat(gyrY,rTable{iter,3});
-##       gyrZ = vertcat(gyrZ,rTable{iter,4});      
-##    end
-##    if strcmp (rTable{iter,5},'Magnetometer')
-##       timeMagnetRaw = vertcat(timeMagnetRaw,rTable{iter,1});
-##       magX = vertcat(magX,rTable{iter,2});
-##       magY = vertcat(magY,rTable{iter,3});
-##       magZ = vertcat(magZ,rTable{iter,4});      
-##    end
-##    if strcmp (rTable{iter,5},'Altitude')
-##       timeAltitudeRaw = vertcat(timeAltitudeRaw,rTable{iter,1});
-##       altitude = vertcat(altitude,rTable{iter,2});    
-##    end
-##    if strcmp (rTable{iter,5},'Condition(Accelerometer)')
-##       cond = vertcat(cond,rTable{iter,2});    
-##    end
 if iter2 > 500
     iter2 = 0;
     waitbar(iter/nrows);
@@ -81,9 +57,6 @@ end
 end
 
 close(warn)
-
-
-
 
 %Time in Seconds
 [records,~] = size(timeRaw);

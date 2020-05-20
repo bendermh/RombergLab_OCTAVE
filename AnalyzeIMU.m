@@ -6,15 +6,17 @@
 
 
 % Load OCTAVE required Packages
-pkg load signal
-pkg load statistics
+if isOctave
+  pkg load signal
+  pkg load statistics
+end
 
 [T,X,Y,Z,gX,gY,gZ,Talt,alt,Tmag,mX,mY,mZ,C] = read();
 if size(T) < 1 
     display('No data was loaded !')
     return
 end
-%Modos Niños
+%Modos Niï¿½os
 index1 = find(C == 1);
 index2 = find(C == 2);
 index3 = find(C == 3);
